@@ -1,0 +1,62 @@
+{
+    "name": "vendor/demo",
+    "description": "This project was created with apie/apie-project-starter",
+    "license": "proprietary",
+    "keywords": [
+        "apie",
+        "rest",
+        "api",
+        "openapi"
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "apie/meta-maximum": "1.0.0.x-dev",
+        "apie/apie-bundle": "1.0.0.x-dev",
+        "doctrine/doctrine-bundle": "^2.10",
+        "symfony/console": "6.*",
+        "symfony/framework-bundle": "6.*",
+        "symfony/runtime": "6.*",
+        "symfony/dotenv": "6.*",
+        "symfony/flex": "^2",
+        "symfony/yaml": "6.1.*",
+        "symfony/security-bundle": "6.*",
+        "apie/cms-layout-graphite": "1.0.0.x-dev",
+        "symfony/twig-bundle": "6.*"
+    },
+    "require-dev": {
+        "apie/apie-phpstan-rules": "1.0.0.x-dev",
+        "phpstan/phpstan": "^1.8.2",
+        "phpunit/phpunit": "^9.5",
+        "symfony/debug-bundle": "6.*",
+        "symfony/monolog-bundle": "^3.0",
+        "symfony/stopwatch": "6.*",
+        "symfony/web-profiler-bundle": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "apie/apie-common-plugin": true,
+            "symfony/runtime": true,
+            "symfony/flex": true
+        }
+    },
+    "conflict": {
+        "symfony/twig-bundle": "v6.4.0-BETA1"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        }
+    }
+}
