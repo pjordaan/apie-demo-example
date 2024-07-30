@@ -4,16 +4,18 @@ namespace App\Apie\Collection\Resources;
 
 use Apie\Core\Attributes\AllowMultipart;
 use Apie\Core\Attributes\HasRole;
+use Apie\Core\Attributes\RuntimeCheck;
 use Apie\Core\Attributes\StaticCheck;
+use Apie\Core\Entities\EntityInterface;
 use App\Apie\Collection\Identifiers\CollectableIdentifier;
 use App\Apie\Collection\Lists\TagSet;
 use App\Apie\Collection\ValueObjects\CollectableName;
 use Psr\Http\Message\UploadedFileInterface;
 
 #[AllowMultipart]
-class Collectable implements \Apie\Core\Entities\EntityInterface
+class Collectable implements EntityInterface
 {
-    #[StaticCheck(new HasRole('admin'))]
+    #[RuntimeCheck(new HasRole('admin'))]
     public function __construct(
         private CollectableIdentifier $id,
         private CollectableName $name,
@@ -27,7 +29,7 @@ class Collectable implements \Apie\Core\Entities\EntityInterface
         return $this->id;
     }
 
-    #[StaticCheck(new HasRole('admin'))]
+    #[RuntimeCheck(new HasRole('admin'))]
     public function setName(CollectableName $name)
     {
         $this->name = $name;
@@ -38,7 +40,7 @@ class Collectable implements \Apie\Core\Entities\EntityInterface
         return $this->name;
     }
 
-    #[StaticCheck(new HasRole('admin'))]
+    #[RuntimeCheck(new HasRole('admin'))]
     public function setTags(TagSet $tags)
     {
         $this->tags = $tags;
@@ -49,7 +51,7 @@ class Collectable implements \Apie\Core\Entities\EntityInterface
         return $this->tags;
     }
 
-    #[StaticCheck(new HasRole('admin'))]
+    #[RuntimeCheck(new HasRole('admin'))]
     public function setPicture(UploadedFileInterface $picture)
     {
         $this->picture = $picture;

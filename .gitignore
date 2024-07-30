@@ -1,7 +1,6 @@
 .idea
 /vendor
 /test-project
-/.env
 /db.sqlite
 ###> symfony/framework-bundle ###
 /.env.local

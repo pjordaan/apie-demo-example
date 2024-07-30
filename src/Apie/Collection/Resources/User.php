@@ -7,7 +7,9 @@ use Apie\CommonValueObjects\Email;
 use Apie\Core\Attributes\HasRole;
 use Apie\Core\Attributes\Internal;
 use Apie\Core\Attributes\LoggedIn;
+use Apie\Core\Attributes\RemovalCheck;
 use Apie\Core\Attributes\RuntimeCheck;
+use Apie\Core\Attributes\StaticCheck;
 use Apie\Core\Entities\EntityWithStatesInterface;
 use Apie\Core\Lists\PermissionList;
 use Apie\Core\Lists\StringList;
@@ -22,6 +24,8 @@ use App\Apie\Collection\Identifiers\UserId;
 use LogicException;
 
 #[RuntimeCheck(new LoggedIn())]
+#[RemovalCheck(new StaticCheck())]
+#[RemovalCheck(new RuntimeCheck(new HasRole('admin')))]
 final class User implements EntityWithStatesInterface, CheckLoginStatusInterface, HasRolesInterface, PermissionInterface, RequiresPermissionsInterface
 {
     private UserId $id;
